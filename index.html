@@ -62,4 +62,14 @@ function tick(){let d=Math.max(0,target-Date.now());let v=[Math.floor(d/86400000
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 async function shareInvite(){const data={title:'Nirav & Khushbu — Wedding Invitation',text:'Join us to celebrate our wedding on 26 November 2026.'};if(navigator.share){try{await navigator.share(data)}catch(e){}}else{try{await navigator.clipboard.writeText(location.href);alert('Invitation link copied!')}catch(e){alert('Copy this page link from your browser to share.')}}}
 </script>
+  <audio id="weddingMusic" loop>
+  <source src="assets/wedding-song.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="document.getElementById('weddingMusic').play()"
+style="position:fixed;bottom:20px;right:20px;z-index:9999;
+background:#8b1e3f;color:white;padding:14px 20px;
+border:0;border-radius:30px;">
+♥️ Play Wedding Music
+</button>
 </body></html>
