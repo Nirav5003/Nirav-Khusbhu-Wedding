@@ -20,96 +20,23 @@ main{overflow:hidden}.wrap{width:min(1100px,90%);margin:auto}.section{padding:11
 .story{display:grid;grid-template-columns:1fr 1fr;min-height:560px;background:#f1e8dc}.story-photo{min-height:560px;width:100%;height:100%;object-fit:cover}.story-text{display:flex;flex-direction:column;justify-content:center;padding:9%}.story-text p{font:400 18px/1.8 'Cormorant Garamond',serif;color:#715b5b}
 .events-section{background:#f5eee4}.event-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#dfcfb6;border:1px solid #dfcfb6;margin-top:50px}.event{background:#fbf7f0;padding:30px 18px 32px;text-align:center;min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center}.event .num{font:italic 17px 'Cormorant Garamond',serif;color:var(--gold)}.event h3{font:500 25px 'Cormorant Garamond',serif;color:var(--wine);margin:12px 0 9px}.event .time{font-size:9px;letter-spacing:1.6px;color:#95765c;line-height:1.8}
 .venue-panel{background:var(--wine);color:var(--ivory);padding:75px 25px;position:relative;outline:1px solid var(--gold);outline-offset:-12px}.venue-panel .section-title{color:#f8eddd}.venue-panel p{color:#dfcdb6;line-height:1.8}.outline-btn{display:inline-block;margin-top:20px;border:1px solid var(--gold);padding:14px 22px;text-decoration:none;color:var(--gold2);font-size:9px;letter-spacing:2px;text-transform:uppercase}
-.gallery-grid{display:grid;grid-template-columns:1.1fr .9fr .9fr;grid-template-rows:260px 260px 260px;gap:12px;margin-top:48px}.gallery-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}.gallery-grid figure{margin:0;overflow:hidden;background:#e8ddce}.gallery-grid figure:hover img{transform:scale(1.045)}.gallery-grid figure:first-child{grid-row:span 2}.gallery-grid figure:nth-child(4){grid-column:2 / 4}.gallery-grid figure:nth-child(7){grid-column:1 / 3}
+
+/* Gallery: masonry columns keep each photo at its natural aspect ratio */
+.gallery-grid{display:block;columns:2;column-gap:12px;width:100%;margin-top:48px;text-align:left}
+.gallery-grid figure{display:inline-block;width:100%;margin:0 0 12px;padding:0;break-inside:avoid;overflow:hidden;background:transparent;vertical-align:top}
+.gallery-grid img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;border-radius:3px;transition:transform .7s}
+.gallery-grid figure:hover img{transform:scale(1.02)}
 .film{max-width:850px;margin:42px auto 0;padding:9px;border:1px solid #d7c4a5;background:#fff}.film video{display:block;width:100%;max-height:540px;background:#1d0a12}
 .footer{background:#200711;color:#f8eddd;text-align:center;padding:90px 20px}.footer h2{font:300 clamp(52px,10vw,90px) 'Cormorant Garamond',serif;margin:22px 0}.footer h2 span{color:var(--gold);font-style:italic}.footer .small{font-size:9px;letter-spacing:4px;color:var(--gold2)}
 .share{position:fixed;right:18px;bottom:18px;z-index:5;border:1px solid var(--gold);background:var(--wine);color:#fff;padding:13px 18px;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 25px #1b071433}
 .reveal{opacity:0;transform:translateY(25px);transition:opacity .8s,transform .8s}.reveal.visible{opacity:1;transform:none}
-@media(max-width:760px){.topbar{padding:17px 5vw}.topbar nav{gap:12px}.topbar nav a{font-size:8px;letter-spacing:1px}.hero{min-height:680px}.hero-copy{padding-bottom:100px}.section{padding:78px 0}.story{grid-template-columns:1fr}.story-photo{min-height:390px;max-height:520px}.story-text{padding:55px 9%}.event-grid{grid-template-columns:repeat(2,1fr)}.event{min-height:165px;padding:20px 12px}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:250px 210px 220px 220px}.gallery-grid figure:first-child{grid-row:span 2}.gallery-grid figure:nth-child(4){grid-column:auto}.gallery-grid figure:nth-child(7){grid-column:1 / 3}.count-unit{padding:8px 12px;min-width:0;flex:1}.count-unit b{font-size:34px}.count-unit span{font-size:7px;letter-spacing:2px}}
+@media(max-width:760px){.topbar{padding:17px 5vw}.topbar nav{gap:12px}.topbar nav a{font-size:8px;letter-spacing:1px}.hero{min-height:680px}.hero-copy{padding-bottom:100px}.section{padding:78px 0}.story{grid-template-columns:1fr}.story-photo{min-height:390px;max-height:520px}.story-text{padding:55px 9%}.event-grid{grid-template-columns:repeat(2,1fr)}.event{min-height:165px;padding:20px 12px}.count-unit{padding:8px 12px;min-width:0;flex:1}.count-unit b{font-size:34px}.count-unit span{font-size:7px;letter-spacing:2px}}
+@media(min-width:761px){.gallery-grid{columns:3;column-gap:16px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
-/* Clean wedding photo gallery */
-/* FINAL WEDDING GALLERY FIX */
-.gallery-grid {
-  display: block !important;
-  columns: 2 !important;
-  column-gap: 12px !important;
-  width: 100%;
-  margin-top: 40px;
-  text-align: left;
-}
-
-.gallery-grid figure {
-  display: inline-block !important;
-  width: 100% !important;
-  margin: 0 0 12px !important;
-  break-inside: avoid;
-  overflow: hidden;
-  background: transparent;
-}
-
-.gallery-grid img {
-  display: block;
-  width: 100% !important;
-  height: auto !important;
-  max-height: none !important;
-  object-fit: contain !important;
-  border-radius: 3px;
-}
-
-@media (min-width: 761px) {
-  .gallery-grid {
-    columns: 3 !important;
-  }
-}
-</style>
-  .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-rows: auto;
-  gap: 14px;
-  width: 100%;
-  margin-top: 40px;
-  align-items: start;
-}
-
-.gallery-grid figure {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background: transparent;
-}
-
-.gallery-grid figure:first-child,
-.gallery-grid figure:nth-child(4),
-.gallery-grid figure:nth-child(7) {
-  grid-row: auto;
-  grid-column: auto;
-}
-
-.gallery-grid img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: none;
-  object-fit: contain;
-  border-radius: 3px;
-}
-
-@media (max-width: 480px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-  }
-}
 </style>
 </head>
 <body>
-<div class="cover" id="cover"><div class="cover-card"><div class="ganesh"><div class="ganesh">
-  ॥ श्री गणेशाय नमः ॥
-</div></div><div class="cover-kicker">A celebration of love</div><h1>Nirav <span>&</span> Khushbu</h1><div class="cover-date">26 · 11 · 2026 &nbsp; | &nbsp; SURAT</div><button class="open-btn" onclick="openInvite()">Open your invitation&nbsp; ✦</button></div></div>
+<div class="cover" id="cover"><div class="cover-card"><div class="ganesh">॥ श्री गणेशाय नमः ॥</div><div class="cover-kicker">A celebration of love</div><h1>Nirav <span>&</span> Khushbu</h1><div class="cover-date">26 · 11 · 2026 &nbsp; | &nbsp; SURAT</div><button class="open-btn" onclick="openInvite()">Open your invitation&nbsp; ✦</button></div></div>
 <div class="topbar"><div class="monogram">N <span style="color:#e5d1a6">&</span> K</div><nav><a href="#story">Our Story</a><a href="#celebrations">Celebrations</a><a href="#gallery">Gallery</a></nav></div>
 <section class="hero"><img class="hero-img" src="assets/photo-2.jpg" alt="Nirav and Khushbu" fetchpriority="high"><div class="hero-copy"><div class="eyebrow">Together with our families</div><h2>Nirav <span>&</span> Khushbu</h2><div class="hero-date">THURSDAY · 26 NOVEMBER 2026 · SURAT</div></div><div class="scroll-note">SCROLL TO EXPLORE ↓</div></section>
 <main>
@@ -125,14 +52,14 @@ main{overflow:hidden}.wrap{width:min(1100px,90%);margin:auto}.section{padding:11
 <div class="event"><div class="num">07 · Thursday</div><h3>Jaan Prasthan</h3><div class="time">26 NOVEMBER 2026<br>5:00 PM · FROM RESIDENCE</div></div>
 <div class="event"><div class="num">08 · Thursday</div><h3>Hasta Melap</h3><div class="time">26 NOVEMBER 2026<br>8:00 PM</div></div>
 </div></div></section>
-<section class="section wrap center reveal"><div class="venue-panel"><div class="section-label">Join us at</div><h2 class="section-title">The Wedding Venue</h2><div class="ornament">⌖</div><p><strong>Shanidev Mandir</strong><br>Jakatnaka, Surat, Gujarat</p><a class="outline-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shanidev+Mandir+Jakatnaka+Surat">Open in Google Maps ↗</a></div></section>
+<section class="section wrap center reveal"><div class="venue-panel"><div class="section-label">Join us at</div><h2 class="section-title">The Wedding Venue</h2><div class="ornament">⌖</div><p><strong>Shanidev Mandir</strong><br>Jakatnaka, Surat, Gujarat</p><a class="outline-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shanidev+Mandir+Jakatnaka+Surat">Open in Google Maps ↗️</a></div></section>
 <section class="section wrap center reveal" id="gallery"><div class="section-label">Frames of happiness</div><h2 class="section-title">Our Moments</h2><p class="intro-copy">A few glimpses of the memories we will treasure forever.</p><div class="gallery-grid">
 <figure><img src="assets/photo-2.jpg" alt="Nirav and Khushbu" loading="lazy"></figure><figure><img src="assets/photo-3.jpg" alt="A tender moment" loading="lazy"></figure><figure><img src="assets/photo-4.jpg" alt="Together outdoors" loading="lazy"></figure><figure><img src="assets/photo-5.jpg" alt="Couple portrait" loading="lazy"></figure><figure><img src="assets/photo-6.jpg" alt="Engagement portrait" loading="lazy"></figure><figure><img src="assets/photo-7.jpg" alt="Engagement celebration" loading="lazy"></figure><figure><img src="assets/photo-8.jpg" alt="Celebrating together" loading="lazy"></figure><figure><img src="assets/photo-9.jpg" alt="A special memory" loading="lazy"></figure>
 </div></section>
 <section class="section wrap center reveal"><div class="section-label">A little film of our memories</div><h2 class="section-title">The Celebration</h2><div class="film"><video controls playsinline preload="metadata" poster="assets/photo-6.jpg"><source src="assets/wedding-film.mp4" type="video/mp4">Your browser does not support video.</video></div></section>
 </main>
 <footer class="footer"><div class="ganesh">ॐ</div><div class="small">YOUR PRESENCE WILL MAKE OUR DAY COMPLETE</div><h2>Nirav <span>&</span> Khushbu</h2><div class="small">26 · 11 · 2026 &nbsp; — &nbsp; WITH LOVE</div></footer>
-<button class="share" onclick="shareInvite()">↗ Share Invitation</button>
+<button class="share" onclick="shareInvite()">↗️ Share Invitation</button>
 <script>
 function openInvite(){document.getElementById('cover').classList.add('closed');document.body.style.overflow='auto'}
 document.body.style.overflow='hidden';
@@ -141,31 +68,16 @@ function tick(){let d=Math.max(0,target-Date.now());let v=[Math.floor(d/86400000
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 async function shareInvite(){const data={title:'Nirav & Khushbu — Wedding Invitation',text:'Join us to celebrate our wedding on 26 November 2026.'};if(navigator.share){try{await navigator.share(data)}catch(e){}}else{try{await navigator.clipboard.writeText(location.href);alert('Invitation link copied!')}catch(e){alert('Copy this page link from your browser to share.')}}}
 </script>
-  <audio id="weddingMusic" loop>
-  <source src="assets/wedding-song.mp3" type="audio/mpeg">
-</audio>
-  <script>
-const bgMusic = document.getElementById('weddingMusic');
-
-document.querySelectorAll('video').forEach(video => {
-  video.addEventListener('play', () => {
-    bgMusic.pause();
-  });
-
-  video.addEventListener('pause', () => {
-    if (!video.ended) {
-      bgMusic.play().catch(() => {});
-    }
-  });
-
-  video.addEventListener('ended', () => {
-    bgMusic.play().catch(() => {});
-  });
-});
-</script>
+<audio id="weddingMusic" loop><source src="assets/wedding-song.mp3" type="audio/mpeg"></audio>
 <script>
-document.getElementById('cover').addEventListener('click', function () {
-  document.getElementById('weddingMusic').play().catch(() => {});
-}, { once: true });
+const bgMusic=document.getElementById('weddingMusic');
+let musicWasPlayingBeforeVideo=false;
+document.querySelectorAll('video').forEach(video=>{
+  video.addEventListener('play',()=>{musicWasPlayingBeforeVideo=!bgMusic.paused;bgMusic.pause()});
+  video.addEventListener('pause',()=>{if(!video.ended&&musicWasPlayingBeforeVideo)bgMusic.play().catch(()=>{})});
+  video.addEventListener('ended',()=>{if(musicWasPlayingBeforeVideo)bgMusic.play().catch(()=>{})});
+});
+document.getElementById('cover').addEventListener('click',()=>{bgMusic.play().catch(()=>{})},{once:true});
 </script>
-</body></html>
+</body>
+</html>
