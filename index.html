@@ -65,11 +65,9 @@ async function shareInvite(){const data={title:'Nirav & Khushbu — Wedding Invi
   <audio id="weddingMusic" loop>
   <source src="assets/wedding-song.mp3" type="audio/mpeg">
 </audio>
-
-<button onclick="document.getElementById('weddingMusic').play()"
-style="position:fixed;bottom:20px;right:20px;z-index:9999;
-background:#8b1e3f;color:white;padding:14px 20px;
-border:0;border-radius:30px;">
-♥️ Play Wedding Music
-</button>
+<script>
+document.getElementById('cover').addEventListener('click', function () {
+  document.getElementById('weddingMusic').play().catch(() => {});
+}, { once: true });
+</script>
 </body></html>
