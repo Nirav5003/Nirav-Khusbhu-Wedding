@@ -85,6 +85,25 @@ async function shareInvite(){const data={title:'Nirav & Khushbu — Wedding Invi
   <audio id="weddingMusic" loop>
   <source src="assets/wedding-song.mp3" type="audio/mpeg">
 </audio>
+  <script>
+const bgMusic = document.getElementById('weddingMusic');
+
+document.querySelectorAll('video').forEach(video => {
+  video.addEventListener('play', () => {
+    bgMusic.pause();
+  });
+
+  video.addEventListener('pause', () => {
+    if (!video.ended) {
+      bgMusic.play().catch(() => {});
+    }
+  });
+
+  video.addEventListener('ended', () => {
+    bgMusic.play().catch(() => {});
+  });
+});
+</script>
 <script>
 document.getElementById('cover').addEventListener('click', function () {
   document.getElementById('weddingMusic').play().catch(() => {});
